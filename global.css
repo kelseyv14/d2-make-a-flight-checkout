@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+.skyblue {
+    background-color: lightskyblue;
+}
+/*===iframe css===*/
+.wrapper {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.noWrapper {
+    width: 100%;
+    height: auto;
+}
+
+.col-xs-4 {
+    text-align: left;
+    color: black;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+.jcalculator_wrap {
+    position: relative;
+}
+
+.jcalculator {
+    font-family: Helvetica Neue, Helvetica, Arial, Verdana, sans-serif;
+    width: 200px;
+    display: none;
+    position: absolute;
+    left: 0;
+    text-align: center;
+}
+
+.jcalculator span {
+    cursor: pointer;
+    float: left;
+    display: block;
+    color: #ffffff;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.jcalculator span:active {
+    line-height: 52px;
+}
+
+.jcalculator .op {
+    background: #191919;
+    font-size: 20px;
+}
+
+
+/* ==========calculator css============== */
+
+.jcalculator.light {
+    background: #ffffff;
+    border-top: 1px solid #F1F1F1;
+    border-right: 1px solid #F1F1F1;
+}
+
+.jcalculator.light span {
+    background: #ffffff;
+    color: #6d6d6d;
+    border-bottom: 1px solid #F1F1F1;
+    border-left: 1px solid #F1F1F1;
+}
+
+.jcalculator.light .op {
+    color: #2b83d2;
+}
+
+.jcalculator.light .eq {
+    background: #DF994B;
+    color: #fff;
+}
+
+#blue {
+    text-align: center;
+     padding: 30px;
+     font-size: 24px;
+    background-image: center;
+
+}
+
+
+.overlay-background {
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: auto;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-background.hidden {
+    opacity: 0;
+}
+
+.overlay {
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.25);
+    background-color: white;
+    width: 50vw;
+    min-width: 300px;
+    margin: 0 auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    border-radius: 5px;
+    padding: 20px 30px;
+    object-position: left;
+}
+
+#modalLogo{
+   object-position: left;
+}
+
+.dropdown{
+    position: relative;
+}
+
+.cloudsTop {
+
+   padding-right: 50px;
+
+}

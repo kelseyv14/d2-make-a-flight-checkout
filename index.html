@@ -1,21 +1,152 @@
 <!doctype html>
 <html>
+
 <head>
     <title></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,fetch,Array.prototype.includes"></script>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="datedropper.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="global.css" />
+
 </head>
-<body>
-    <img class="logo" src="/img/logo.png"/>
-    <div class="container">
-        <h1>jQuery</h1>
-    
+
+<body class="skyblue">
+    <div id="sky">
+        <img class="logo" src="/img/logo.png" />
+        <div class="col-md-9 col-md-push-3">
+            <div class="wrapper">
+                <iframe class="noWrapper" width="420" height="315" src="https://www.youtube.com/watch?v=6rv4IvjaC78" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+    <div class="col-md-6 col-md-offset-3">
+        <div class="alert alert-info" role="alert" id="blue">Thanks for Choosing Glamazonian Airways !<br/> Select a trip below & click "book flight" to take off<hr/>
+          <img width="500"src="/img/clouds.png"/>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-xs-12">
+                <div class="col-xs-4 text-right" style="line-height: 34px;">Filtering options:</div>
+                <div class="col-xs-8 text-left">
+                    <button class="btn btn-xl btn-primary sorter" data-filter="europe">Europe</button>
+                    <button class="btn btn-xl btn-primary sorter" data-filter="africa">Africa</button>
+                    <button class="btn btn-xl btn-primary sorter" data-filter="asia">Asia</button>
+                    <button class="btn btn-xl btn-primary sorter" data-filter="northAmerica">North America</button> |
+                    <button class="btn btn-xl btn-primary sorter" data-filter="*">All</button>
+                </div>
+            </div>
+            <hr/>
+
+
+
+            <ul id="sort-me">
+                <li class="europe" data-title="$200 Germany" data-order="2">
+                    <img src="http://lorempixel.com/200/200/city/1" />
+                </li>
+                <li class="africa" data-title="$500 Algeria" data-order="5">
+                    <img src="http://lorempixel.com/200/200/city/2" />
+                </li>
+                <li class="asia" data-title="$600 Vietnam" data-order="6">
+                    <img src="http://lorempixel.com/200/200/city/3" />
+                </li>
+                <li class="northAmerica" data-title="$150 NewYork" data-order="1">
+                    <img src="http://lorempixel.com/200/200/city/4" />
+                </li>
+                <li class="europe" data-title="$400 Portugal" data-order="4">
+                    <img src="http://lorempixel.com/200/200/city/5" />
+                </li>
+                <li class="europe" data-title="$1000 France" data-order="3">
+                    <img src="http://lorempixel.com/200/200/city/6" />
+                </li>
+                <li class="africa" data-title="$880 Madagascar" data-order="9">
+                    <img src="http://lorempixel.com/200/200/nature/5" />
+                </li>
+                <li class="europe" data-title="$625 Switzerland" data-order="7">
+                    <img src="http://lorempixel.com/200/200/city/8" />
+                </li>
+                <li class="northAmerica" data-title="$480 California" data-order="8">
+                    <img src="http://lorempixel.com/200/200/city/9" />
+                </li>
+                <li class="africa" data-title="$780 Zimbabwe" data-order="10">
+                    <img src="http://lorempixel.com/200/200/sports/6" />
+                </li>
+                <li class="asia" data-title="$1100 Indonesia" data-order="11">
+                    <img src="http://lorempixel.com/200/200/sports/2" />
+                </li>
+                <li class="europe" data-title="$399 Denmark" data-order="0">
+                    <img src="http://lorempixel.com/200/200/nature/4" />
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-12 text-center">
+            <button id="showModalButton" type="button" class="btn btn-success"><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span><br/>Book Your Trip</button>
+            <div id="modal" class="overlay-background hidden">
+                <div class="overlay">
+                    <button type="button" class="overlay-close btn btn-default btn-sm">X</button>
+                    <img class="modalLogo" src="/img/modallogo.png" />
+                    <p>Great ! Wow! you're going on a trip, lucky you!!!!!! Put in your info down here and then I will cast a magic spell and these prices will exisit and you just go to the airport, don't ask questions, send me money ok<br/> see-ya!!</p><br>
+                    <form>
+                        <div class="form-group">
+                            <label for="namebox">Name</label>
+                            <input type="name" class="form-control" id="namebox" placeholder="ex. Lavondrious">
+                        </div>
+                        <div class="form-group">
+                            <label for="creditcard">Credit Card Number</label>
+                            <input type="creditcard" class="form-control" id="creditcard" placeholder="XXXX-XXXX-XXXX-XXXX">
+                            //expiration date input with date picker
+                        </div>
+                        <div class="form-group">
+                            <label for="driversLicense">Copy of State Driver's License</label>
+                            <input type="file" id="driversLicense">
+                            <p class="help-block">ex. driverslicensewithbillinginfo.jpg</p>
+                        </div>
+                        <label for="grossAnnual">Gross Annual Income</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                            <span class="input-group-addon">.00</span>
+                        </div>
+                         //calculator//
+                        <div class="checkbox">
+                            <label><input type="checkbox"> Sign Up For Our Monthy Newsletter</label>
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">oh..and what flight do you want<span class="caret"></span></button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Touson*</a></li>
+                                <li><a href="#">New Jersey*</a></li>
+                                <li><a href="#">Orlando*</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul><br/>
+                            *no refunds, don't call us we don't have a phone
+                        </div>
+                </div>
+                </form>
+
+
+            </div>
+
+
+         
+
+            <!--<input type="text" data-lang="it"/>-->
+            <!--this is not working and I can't figure out why <script src="jscalculator.js">$(selector).calculator.js({??})</script>-->
+
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="jscalculator.js"></script>
+        <script src="datedropper.js"></script>
+        <script src="dist/jquery.jqlouds.min.js"></script>
+        <script src="jquery.mediaWrapper.js"></script>
+        <script src="flightboxes.js"></script>
+        <script src="index.js"></script>
 </body>
+
 </html>
